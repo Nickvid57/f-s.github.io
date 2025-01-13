@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>F&S News</title>
+            <link rel="stylesheet" href="Project.css">
+        </head>
+        <body>
+            <header>
+                <div class="logo">
+                    <h1>F&S</h1>
+                </div>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="Sports.html">Sports</a></li>
+                        <li><a href="Entertainment.html">Entertainment</a></li>
+                        <li><a href="Technology.html">Technology</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <img src="hero-image.jpg" alt="Breaking news">
+                    <div class="hero-content"></div>
+                        <h2>Breaking News: Latest Updates on Today's Events</h2>
+                        <p>Stay informed with the latest headlines and in-depth reporting.</p>
+                    </div>
+                </section>
+        
+                <section id="sports" class="category">
+                    <h2>Sports</h2>
+                    <article>
+                        <img src="Sports01.jpg" alt="Sports News">
+                        <h3>Match Highlights</h3>
+                        
+                        <a href="Sports.html">Read more...</a>
+                    </article>
+                </section>
+        
+                <section id="entertainment" class="category">
+                    <h2>Entertainment</h2>
+                    <article>
+                        <img src="Entertainment.webp" alt="Entertainment News">
+                        <h3>Latest Movie Releases</h3>
+                        <a href="Entertainment.html">Read more...</a>
+                    </article>
+                </section>
+                <section id="technology" class="category">
+                    <h2>Technology</h2>
+                    <article>
+                        <img src="Technology01.jpg" alt="Tech News">
+                        <h3>The most famous trends</h3>
+                         <a href="technology.html">Read more...</a>
+                    </article>
+                </section>
+        
+                
+            </main>
+        
+            <footer>
+                <p>&copy; 2025 F&S News. All rights reserved.</p>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </footer>
+            <script>
+                // Highlight active navigation menu item
+                document.addEventListener('DOMContentLoaded', () => {
+                    const navbarLinks = document.querySelectorAll('.navbar a');
+                    navbarLinks.forEach(link => {
+                        link.addEventListener('click', (event) => {
+                            navbarLinks.forEach(nav => nav.classList.remove('active'));
+                            event.target.classList.add('active');
+                        });
+                    });
+                });
+            
+                // Dynamic hero section text update
+                const heroText = document.querySelector('.hero-content h2');
+                const headlines = [
+                    "Breaking News: Latest Updates on Today's Events",
+                    "Sports Highlights: Scores and More",
+                    "Entertainment: What's Trending"
+                ];
+            
+                let currentHeadline = 0;
+                setInterval(() => {
+                    currentHeadline = (currentHeadline + 1) % headlines.length;
+                    heroText.textContent = headlines[currentHeadline];
+                }, 5000);
+            
+                // Smooth scroll to sections
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            </script>
+            
+        </body>
+</html>
